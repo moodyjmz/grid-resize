@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: var(--left, 2fr) var(--right, 2fr);
+            grid-template-rows: var(--top, 3fr) var(--bottom, 3fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            transition: all 0.25s ease;
+            width: 100%;
+            height: 200px;
+
+            align-items: stretch;
+            justify-items: stretch;
+        }
+
+        .grid:has(.left:hover) {
+            --left: 3fr;
+            --right: 1fr;
+        }
+
+        .grid:has(.right:hover) {
+            --right: 3fr;
+            --left: 1fr;
+        }
+
+        .grid:has(.top:hover) {
+            --top: 3fr;
+            --bottom: 2fr;
+        }
+
+        .grid:has(.bottom:hover) {
+            --bottom: 3fr;
+            --top: 2fr;
+        }
+
+        .lon .content{
+            background: red;
+        }
+
+        .lat .content{
+            background: blue;
+        }
+
+        .speed .content{
+            background: green;
+        }
+
+        .city .content{
+            background: yellow;
+        }
+
+        .content-wrapper {
+            container-type: size;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            align-items: stretch;
+            justify-content: stretch;
+            flex: 1;
+        }
+        .content {
+            color: #fff;
+            mix-blend-mode: exclusion;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #fff;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+            flex: 1;
+            flex-wrap: nowrap;
+            flex-direction: column;
+        }
+        h6 {
+            display: inline-block;
+            font-size: clamp(1rem, min(12cqi, 12cqb) + 0.5rem, 20rem);
+            margin: 0;
+        }
+
+        .content p {
+            font-size: clamp(0.875rem, min(6cqi, 6cqb) + 0.5rem, 8rem);
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+
+        <div class="lat item left top">
+            <div class="content-wrapper">
+                <div class="content">
+                    <h6>Lat</h6>
+                    <p>40.7128</p>
+                </div>
+            </div>
+        </div>
+        <div class="lon item right top">
+            <div class="content-wrapper">
+                <div class="content">
+                    <h6>Lon</h6>
+                    <p>-74.0060</p>
+                </div>
+            </div>
+        </div>
+        <div class="speed item left bottom">
+            <div class="content-wrapper">
+                <div class="content">
+                    <h6>Speed</h6>
+                    <p>100 km/h</p>
+                </div>
+            </div>
+        </div>
+        <div class="city item right bottom">
+            <div class="content-wrapper">
+                <div class="content">
+                    <h6>City</h6>
+                    <p>New York</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
